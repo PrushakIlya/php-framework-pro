@@ -4,8 +4,79 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53e8709a493bebc62d2e3ea11899afda",
+    "content-hash": "fbd44c75b46919fed8d1b76eb935441f",
     "packages": [
+        {
+            "name": "nikic/fast-route",
+            "version": "dev-hotfix-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PrushakIlya/FastRoute.git",
+                "reference": "abde1227f8bdfe77a8779238760faa6f181fe3b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PrushakIlya/FastRoute/zipball/abde1227f8bdfe77a8779238760faa6f181fe3b9",
+                "reference": "abde1227f8bdfe77a8779238760faa6f181fe3b9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^12.0",
+                "phpbench/phpbench": "^1.2",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan": "^1.10",
+                "phpstan/phpstan-deprecation-rules": "^1.1",
+                "phpstan/phpstan-phpunit": "^1.3",
+                "phpstan/phpstan-strict-rules": "^1.5",
+                "phpunit/phpunit": "^9.6"
+            },
+            "suggest": {
+                "ext-apcu": "To be able to use APCu cache driver"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FastRoute\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "FastRoute\\Benchmark\\": "benchmark/",
+                    "FastRoute\\Test\\": "test/"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov",
+                    "email": "nikic@php.net"
+                }
+            ],
+            "description": "Fast request router for PHP",
+            "keywords": [
+                "router",
+                "routing"
+            ],
+            "support": {
+                "source": "https://github.com/PrushakIlya/FastRoute/tree/hotfix-dev"
+            },
+            "time": "2023-08-20T21:15:36+00:00"
+        }
+    ],
+    "packages-dev": [
         {
             "name": "symfony/deprecation-contracts",
             "version": "v3.3.0",
@@ -241,10 +312,11 @@
             "time": "2023-07-31T07:08:24+00:00"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "nikic/fast-route": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

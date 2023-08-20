@@ -11,7 +11,16 @@
             "name": "Ilya Prushak"
         }
     ],
-    "require": {
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/PrushakIlya/FastRoute.git"
+        }
+    ],
+    "require-dev": {
         "symfony/var-dumper": "^6.3"
+    },
+    "require": {
+        "nikic/fast-route": "dev-hotfix-dev"
     }
 }

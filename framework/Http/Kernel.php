@@ -1,12 +1,29 @@
 <?php
 
-use Prushak\Framework\Http\Request;
-use Prushak\Framework\Http\Response;
+namespace Prushak\Framework\Http;
+
+use Prushak\Framework\Exception\HttpException;
+use Prushak\Framework\Exception\HttpRequestMethodException;
+use Prushak\Framework\Routing\RouterInterface;
 
 class Kernel {
-    public function handle(Request $request): Response {
-        $content = "Hello World";
+    public function __construct(private RouterInterface $router)
+    {
+    }
 
-        return new Response($content);
+     public function handle(Request $request): Response {
+        try {
+            [$routeHandler, $vars] = $this->router->dispatch($request);
+
+            $response = call_user_func_array($routeHandler, $vars);
+        }
+        catch(HttpException $e) {
+            $response = new Response($e->getMessage(), $e->getCode());
+        }
+        catch(\Exception $e) {
+            $response = new Response($e->getMessage(),  500);
+        }
+
+        return $response;
     }
 }
