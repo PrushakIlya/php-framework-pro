@@ -3,7 +3,6 @@
 namespace Prushak\Framework\Http;
 
 use Prushak\Framework\Exception\HttpException;
-use Prushak\Framework\Exception\HttpRequestMethodException;
 use Prushak\Framework\Routing\RouterInterface;
 
 class Kernel {

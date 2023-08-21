@@ -2,10 +2,11 @@
     "name": "src/pro",
     "autoload": {
         "psr-4": {
-            "App\\": "src/",
-            "Prushak\\Framework\\": "framework/"
+            "App\\": "src/"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Ilya Prushak"
@@ -13,14 +14,14 @@
     ],
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/PrushakIlya/FastRoute.git"
+            "type": "path",
+            "url": "framework"
         }
     ],
     "require-dev": {
         "symfony/var-dumper": "^6.3"
     },
     "require": {
-        "nikic/fast-route": "dev-hotfix-dev"
+        "prushak/php-framework-pro": "dev-main"
     }
 }

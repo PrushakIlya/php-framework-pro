@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42546bfc686897300cd5cd82bec29afc",
+    "content-hash": "6066cfc71bb46882c0d4b8f2bca064e9",
     "packages": [
         {
             "name": "nikic/fast-route",
@@ -71,35 +71,6 @@
                 "source": "https://github.com/nikic/FastRoute/tree/master"
             },
             "time": "2023-07-27T22:52:32+00:00"
-        },
-        {
-            "name": "prushak/php-framework-pro",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "framework",
-                "reference": "ebbccdeee2fe6993f81334b4dd4944a913aeb0c1"
-            },
-            "require": {
-                "nikic/fast-route": "dev-master"
-            },
-            "require-dev": {
-                "symfony/var-dumper": "^6.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Prushak\\Framework\\": "src/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Ilya Prushak"
-                }
-            ],
-            "transport-options": {
-                "relative": true
-            }
         }
     ],
     "packages-dev": [
@@ -339,11 +310,11 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
-        "prushak/php-framework-pro": 20
+        "nikic/fast-route": 20
     },
-    "prefer-stable": true,
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],

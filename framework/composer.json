@@ -1,0 +1,19 @@
+{
+    "name": "prushak/php-framework-pro",
+    "autoload": {
+        "psr-4": {
+            "Prushak\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ilya Prushak"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
+    },
+    "require": {
+        "nikic/fast-route": "dev-master"
+    }
+}
