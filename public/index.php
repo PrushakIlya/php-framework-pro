@@ -1,20 +1,28 @@
 <?php
 
-//declare(strict_types=1);
+declare(strict_types=1);
+
+ini_set ('display_errors', 1);
+ini_set ('display_startup_errors', 1);
+error_reporting (E_ALL);
 
 use Prushak\Framework\Http\Kernel;
 use Prushak\Framework\Http\Request;
-use Prushak\Framework\Routing\Router;
 
 define('MAIN_PATH', dirname(__DIR__));
 
 require_once MAIN_PATH . "/vendor/autoload.php";
 
+use Symfony\Component\Dotenv\Dotenv;
+$dotenv = new Dotenv();
+$dotenv->load(MAIN_PATH . '/.env');
+
+$container = require_once MAIN_PATH . "/config/services.php";
+
 // request received
 $request = Request::createFromGlobals();
 
-$router = new Router();
-$kernel = new Kernel($router);
+$kernel = $container->get(Kernel::class);
 
 // send response (string of content)
 $response = $kernel->handle($request);

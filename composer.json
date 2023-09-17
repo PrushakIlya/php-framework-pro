@@ -19,9 +19,11 @@
         }
     ],
     "require-dev": {
-        "symfony/var-dumper": "^6.3"
+        "symfony/var-dumper": "^6.3",
+        "phpunit/phpunit": "^10.3"
     },
     "require": {
-        "prushak/php-framework-pro": "dev-main"
+        "prushak/php-framework-pro": "dev-main",
+        "symfony/dotenv": "^6.3"
     }
 }

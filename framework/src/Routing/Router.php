@@ -4,30 +4,36 @@ namespace Prushak\Framework\Routing;
 
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
+use Prushak\Framework\Container\Container;
 use Prushak\Framework\Exception\HttpException;
 use Prushak\Framework\Exception\HttpRequestMethodException;
 use Prushak\Framework\Http\Request;
+use Psr\Container\ContainerInterface;
 use function FastRoute\simpleDispatcher;
 
 class Router implements RouterInterface {
-    public function dispatch(Request $request): array
+    private array $routes;
+    public function dispatch(Request $request, ContainerInterface $container): array
     {
         [$routeHandler, $vars] = $this->getRouteInfo($request);
 
         if (is_array($routeHandler)) {
-            [$controller, $method] = $routeHandler;
-            return [[new $controller, $method], $vars];
+            [$controllerId, $method] = $routeHandler;
+            $controller = $container->get($controllerId);
+            $routeHandler = [$controller, $method];
         }
 
         return [$routeHandler, $vars];
     }
 
+    public function setRoute(array $routes): void {
+        $this->routes = $routes;
+    }
+
     private function getRouteInfo(Request $request): array | HttpException
     {
         $dispatcher = simpleDispatcher(function(RouteCollector $routeCollector) {
-            $routes = require_once MAIN_PATH . '/routes/web.php';
-
-            foreach ($routes as $route) {
+            foreach ($this->routes as $route) {
                 $routeCollector->addRoute(...$route);
             }
         });
